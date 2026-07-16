@@ -7,10 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +36,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -77,19 +73,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EpidemIQs — Multi-agent AI for epidemic modeling research" },
-      { name: "description", content: "Autonomous multi-agent AI system that turns an epidemic research question into a full modeling, simulation, analysis, and report pipeline." },
-      { property: "og:title", content: "EpidemIQs" },
-      { property: "og:description", content: "Autonomous multi-agent AI for epidemic modeling research." },
+      { title: "Epidemic Navigator" },
+      { name: "description", content: "Multi-agent epidemic intelligence platform for outbreak analysis, simulation, forecasting, and research workflows." },
+      { name: "author", content: "Sanjay N" },
+      { name: "keywords", content: "AI, Epidemic, Dashboard, Multi-Agent, Disease Intelligence, Analytics" },
+      { property: "og:title", content: "Epidemic Navigator" },
+      { property: "og:description", content: "Multi-agent epidemic intelligence platform for outbreak analysis, simulation, forecasting, and research workflows." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/favicon.ico" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
     ],
   }),
   shellComponent: RootShell,
@@ -117,7 +114,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

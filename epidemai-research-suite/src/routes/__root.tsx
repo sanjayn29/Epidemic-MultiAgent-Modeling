@@ -7,10 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -35,9 +34,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -57,18 +53,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EpidemAI — Multi-Agent Epidemic Research Platform" },
-      { name: "description", content: "AI-powered multi-agent platform for epidemic modeling, simulation, and research." },
-      { property: "og:title", content: "EpidemAI — Multi-Agent Epidemic Research" },
-      { property: "og:description", content: "AI-powered multi-agent platform for epidemic modeling, simulation, and research." },
+      { title: "EpidemIQs Research Suite" },
+      { name: "description", content: "AI-powered epidemic research platform for multi-agent collaboration, simulation, forecasting, and epidemiological analytics." },
+      { name: "author", content: "Sanjay N" },
+      { name: "keywords", content: "AI, Multi Agent, Epidemiology, Research, Disease Forecasting, Healthcare, Dashboard" },
+      { property: "og:title", content: "EpidemIQs Research Suite" },
+      { property: "og:description", content: "AI-powered epidemic research platform for multi-agent collaboration, simulation, forecasting, and epidemiological analytics." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/favicon.ico" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" },
     ],
   }),

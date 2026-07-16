@@ -1,0 +1,17 @@
+{
+  "name": "Epidemic Navigator",
+  "short_name": "EN",
+  "description": "Multi-agent epidemic intelligence platform for outbreak analysis, simulation, forecasting, and research workflows.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f6f2",
+  "theme_color": "#12324a",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

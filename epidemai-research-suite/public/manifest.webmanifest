@@ -1,0 +1,17 @@
+{
+  "name": "EpidemIQs Research Suite",
+  "short_name": "ER",
+  "description": "AI-powered epidemic research platform for multi-agent collaboration, simulation, forecasting, and epidemiological analytics.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f6f2",
+  "theme_color": "#0f3d3e",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
