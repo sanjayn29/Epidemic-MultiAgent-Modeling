@@ -1,18 +1,26 @@
-# EpidemIQs Research Suite
+# EpidemAI Research Suite
 
-AI-powered epidemic research platform for multi-agent collaboration, simulation, forecasting, and epidemiological analytics.
+EpidemAI Research Suite is a front-end research dashboard for epidemic modeling, multi-agent workflows, simulations, and report-oriented analytics.
 
-## Project Overview
+## What This Project Does
 
-EpidemIQs Research Suite is a React and TypeScript application for exploring epidemic scenarios, coordinating research workflows, and visualizing analytical outputs in a structured dashboard experience.
+The app presents a landing page, login flow, and several app sections for research, dashboarding, experiments, simulations, analytics, reports, network exploration, agent status, and settings. The UI is designed to look like an epidemic research control center, with cards, charts, workflow steps, and status views for ongoing studies.
 
-## Features
+## What Is In The App
 
-- Multi-agent research workflow views
-- Simulation and forecasting-oriented dashboards
-- Epidemiological analytics panels
-- Responsive navigation and status components
-- Modular UI built with reusable component primitives
+- A marketing-style landing page that explains the platform
+- A research workflow area for epidemic studies
+- Dashboard views for experiments, agents, simulations, reports, and analytics
+- A settings page for preferences and API key placeholders
+- Reusable UI components for cards, tables, badges, and navigation
+
+## Data And Backend Verdict
+
+- This project does not contain a real application backend or real API routes.
+- The server file at [src/server.ts](src/server.ts) is an SSR adapter for TanStack Start, not a custom business-logic backend.
+- The visible project data comes from static in-memory mock files such as [src/lib/mock-data.ts](src/lib/mock-data.ts).
+- The settings page shows API key inputs for OpenAI, Semantic Scholar, and Tavily, but they are only placeholder inputs and are not wired to a live service in the checked-in code.
+- So the numbers, experiment rows, activity feed, and agent statuses should be treated as demo or fake data, not real research output.
 
 ## Tech Stack
 
@@ -26,20 +34,15 @@ EpidemIQs Research Suite is a React and TypeScript application for exploring epi
 
 ## Folder Structure
 
-- `src/routes` - file-based application routes and root shell
-- `src/components` - shared UI and feature components
-- `src/lib` - utilities and application helpers
-- `public` - static assets and browser metadata
+- [src/routes](src/routes) - file-based application routes and app screens
+- [src/components](src/components) - shared UI and feature components
+- [src/lib](src/lib) - utilities and mock application data
+- [public](public) - static assets and browser metadata
 
-## Installation
+## Run Locally
 
 ```bash
 bun install
-```
-
-## Running Locally
-
-```bash
 bun run dev
 ```
 
@@ -49,13 +52,7 @@ To create a production build:
 bun run build
 ```
 
-## Screenshots
+## Notes
 
-Add product screenshots here once the final branding and workflows are approved.
-
-## Future Work
-
-- Add richer epidemic scenario comparisons
-- Expand automated reporting and export flows
-- Add saved research sessions and collaboration features
-- Improve charts, filters, and longitudinal analysis views
+- The codebase is best understood as a polished demo or prototype for epidemic research workflows.
+- If you want this to become a real product, the next step would be to replace the mock data with API calls and connect the settings page to actual secret storage.
